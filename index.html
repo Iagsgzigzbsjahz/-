@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html dir="rtl" lang="en" , lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمار النجار </title>
+</head>
+<body>
+    <h1 size="10">
+        مرحبا بكم في الموقع الرسمي للصحفي عمار النجار 
+    </h1>
+
+    <img src="ammar.jpg" class="omar">
+    <br>
+
+    <h2 style="color: blue;"> <a href="sv.html" target="_self" > السيرة الذاتية </a> </h2>
+    
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحباً</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .welcome-container {
+            max-width: 600px;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #f1c40f;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <!-- يمكنك استبدال هذا بمحتواك الخاص -->
+        <img src="ammar.jpg" alt="شعار الموقع" class="logo">
+        <h1>مرحباً بكم في الموقع الشخصي للصحفي عمار النجار </h1>
+        <p>جاري تحميل المحتوى، سيتم توجيهك تلقائياً خلال <span id="count">5</span> ثانية...</p>
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <script>
+        // الوقت المتبقي للانتقال (بالثواني)
+        let seconds = 5;
+
+        
+        // تحديث العداد كل ثانية
+        const countdownElement = document.getElementById('countdown');
+        const countElement = document.getElementById('count');
+        
+        const timer = setInterval(function() {
+            seconds--;
+            countElement.textContent = seconds;
+            countdownElement.textContent = `⏳ ${seconds} ثانية`;
+            
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = "temp.html"; // اسم صفحتك الرئيسية
+            }
+        }, 1000);
+        
+
+        // السماح للمستخدم بتخطي الصفحة الترحيبية بالنقر
+        document.body.addEventListener('click', function() {
+            clearInterval(timer);
+            window.location.href = "temp.html";
+        });
+    </script>
+</body>
+</html>
+
+
+
