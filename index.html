@@ -72,37 +72,32 @@
         <!-- يمكنك استبدال هذا بمحتواك الخاص -->
         <img src="ammar.jpg" alt="شعار الموقع" class="logo">
         <h1>مرحباً بكم في الموقع الشخصي للصحفي عمار النجار </h1>
-        <p>جاري تحميل المحتوى، سيتم توجيهك تلقائياً خلال <span id="count">10</span> ثانية...</p>
+        <p>جاري تحميل المحتوى، سيتم توجيهك تلقائياً خلال <span id="count">5</span> ثانية...</p>
         <div class="countdown" id="countdown"></div>
     </div>
-
-    <script>
-        // الوقت المتبقي للانتقال (بالثواني)
-        let seconds = 5;
-
+<script>
+    let seconds = 5;
+    const countElement = document.getElementById('count');
+    
+    // تم تعيين sessionStorage هنا قبل الانتقال
+    sessionStorage.setItem('welcomeShown', 'true');
+    
+    const timer = setInterval(function() {
+        seconds--;
+        if(countElement) countElement.textContent = seconds;
         
-        // تحديث العداد كل ثانية
-        const countdownElement = document.getElementById('countdown');
-        const countElement = document.getElementById('count');
-        
-        const timer = setInterval(function() {
-            seconds--;
-            countElement.textContent = seconds;
-            countdownElement.textContent = `⏳ ${seconds} ثانية`;
-            
-            if (seconds <= 0) {
-                clearInterval(timer);
-                window.location.href = "temp.html"; // اسم صفحتك الرئيسية
-            }
-        }, 1000);
-        
-
-        // السماح للمستخدم بتخطي الصفحة الترحيبية بالنقر
-        document.body.addEventListener('click', function() {
+        if (seconds <= 0) {
             clearInterval(timer);
             window.location.href = "temp.html";
-        });
-    </script>
+        }
+    }, 1000);
+    
+    document.body.addEventListener('click', function() {
+        clearInterval(timer);
+        sessionStorage.setItem('welcomeShown', 'true');
+        window.location.href = "temp.html";
+    });
+</script>
 </body>
 </html>
 
